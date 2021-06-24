@@ -1,6 +1,9 @@
 pipeline {
     
     agent any
+    agent {
+    label 'node1'
+    }
     
     triggers{
         pollSCM('* * * * *')
@@ -27,7 +30,7 @@ pipeline {
                 sh "mvn clean package"
             }
         }
-        
+      /*  
         stage ('ExecuteSonarQubeReport'){
             steps{
                 sh "mvn clean sonar:sonar"
@@ -47,6 +50,7 @@ pipeline {
             }
         }
     }
+    */
     }// Stages Closing
 
 post{
